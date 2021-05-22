@@ -129,14 +129,93 @@ class DrawerWidget extends StatelessWidget {
           ),
           Expanded(
               child: Container(
+            height: 1.sh,
             color: white,
-            child: ElevatedButton(
-              child: Text('Coba'),
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => ProfilePage()));
-              },
+            child: Padding(
+              padding: EdgeInsets.only(left: 24.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: ScreenUtil().statusBarHeight + 20.w),
+                  Container(
+                    margin: EdgeInsets.only(right: 24.w),
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {},
+                          child: CircleAvatar(
+                              radius: 30.w,
+                              backgroundImage: NetworkImage(
+                                  'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')),
+                        ),
+                        const SizedBox(width: 20),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            RichText(
+                              text: TextSpan(children: [
+                                TextSpan(
+                                    text: 'Angga  ',
+                                    style: AppTextStyle.ralewayBold(
+                                        fontSize: 16.sp, color: primaryColor)),
+                                TextSpan(
+                                    text: 'Praja',
+                                    style: AppTextStyle.ralewayMed(
+                                        fontSize: 16.sp, color: primaryColor))
+                              ]),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(top: 6),
+                              padding: const EdgeInsets.all(6),
+                              child: Text('Member BBLK ',
+                                  style: AppTextStyle.ralewayBold(
+                                      fontSize: 14.sp, color: grey4)),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  SizedBox(
+                    width: .5.sw,
+                    child: ListTile(
+                      title: Text('Profile Saya',
+                          style: AppTextStyle.ralewayMed(
+                              fontSize: 14.sp, color: grey3)),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => ProfilePage()));
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: .5.sw,
+                    child: ListTile(
+                      title: Text('Pengaturan',
+                          style: AppTextStyle.ralewayMed(
+                              fontSize: 14.sp, color: grey3)),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => ProfilePage()));
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding:   EdgeInsets.only(left:8.0),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Logout'),
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.red, shape: StadiumBorder()),
+                    ),
+                  )
+                ],
+              ),
             ),
           ))
         ],
